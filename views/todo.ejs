@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Todo List APP test</title>
+    <style>
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body bgcolor="#14b8a2">
+    <h1 align="center">To Do List</h1>
+    <ul>
+      <% todolist.forEach(function(todo, index) { %>
+      <h3>
+        <ul align="center">
+          <a href="/todo/delete/<%= index %>">✘</a>
+          <a href="/todo/<%= index %>">✎</a>
+          <%- todo %>
+        </ul>
+      </h3>
+      <% }); %>
+    </ul>
+
+    <form action="/todo/add/" method="post">
+      <h3>
+        <p align="center">
+          <label for="newtodo">What shoud I do?</label>
+          <input type="text" name="newtodo" id="newtodo" autofocus />
+          <input type="submit" value="Add" />
+        </p>
+      </h3>
+    </form>
+  </body>
+</html>
